@@ -34,5 +34,12 @@ namespace Learning_WebAPI.Controllers
             return Ok($"The Id which you have passed is {id}, and the String which you have passed is {test}");
         }
 
+        [HttpPost]
+        public ActionResult<List<FoodMenuModel>> AddNewMenu(FoodMenuModel NewMenu)
+        {
+            Menu.Add(new FoodMenuModel() { Id = NewMenu.Id, ItemName = NewMenu.ItemName, Price = NewMenu.Price });
+            return Ok(Menu);
+        }
+
     }
 }
